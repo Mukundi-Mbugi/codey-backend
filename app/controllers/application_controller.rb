@@ -1,7 +1,8 @@
 class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
   
-  get '/posts' do
+  get '/' do
+    Post.create(:title => 'Hello World', :body => 'This is my first post')
     posts = Post.all.order(created_at: :desc)
     blogs = posts.map do |post|
       {title: post.title,
