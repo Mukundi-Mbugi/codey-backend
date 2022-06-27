@@ -36,7 +36,7 @@ gem "rake", "~> 13.0"
 # Require all files in a folder
 gem "require_all", "~> 3.0"
 
-
+gem "faker", "~> 2.2"
 
 # These gems will only be used when we are running the application locally
 group :development do
