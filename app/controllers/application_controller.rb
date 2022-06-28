@@ -4,15 +4,16 @@ class ApplicationController < Sinatra::Base
   get '/' do
     # Post.create(:title => 'Hello World', :body => 'This is my first post')
     posts = Post.all.order(created_at: :desc)
-    blogs = posts.map do |post|
-      {title: post.title,
-      body: post.body,
-      id: post.id,
-      author: post.author,
-      created_at: post.created_at,
-      updated_at: post.updated_at
-    }
-    end
+    
+    # blogs = posts.map do |post|
+    #   {title: post.title,
+    #   body: post.body,
+    #   id: post.id,
+    #   author: post.author,
+    #   created_at: post.created_at,
+    #   updated_at: post.updated_at
+    # }
+    # end
     blogs.to_json
   end
 
