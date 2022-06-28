@@ -17,7 +17,7 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/posts' do
-    post = Post.create(:title => params[:title], :body => params[:body])
+    post = Post.create(:title params[:title], :body params[:body])
     post.to_json
     end
   
@@ -27,7 +27,7 @@ class ApplicationController < Sinatra::Base
 
   patch '/posts/:id' do
     post = Post.find(params[:id])
-    post.update(:title => params[:title], :body => params[:body])
+    post.update(:title params[:title], :body params[:body])
     post.to_json
   end
 
