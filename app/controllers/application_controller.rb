@@ -16,8 +16,9 @@ class ApplicationController < Sinatra::Base
     blogs.to_json
   end
 
-  post '/likes' do
-    like = post.create(likes: params[:likes])
+  patch '/likes/:id' do
+    like = Post.find(params[:id])
+    like.update(likes: like.likes + 1)
     like.to_json
   end
 
