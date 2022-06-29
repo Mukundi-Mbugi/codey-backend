@@ -23,7 +23,7 @@ class ApplicationController < Sinatra::Base
     end
   
   post '/authors' do
-    author = Author.create(:name => params[:name], :email => params[:email], :password => params[:password])
+    author = Author.create(:name params[:name], :email params[:email])
   end
 
   patch '/posts/:id' do
