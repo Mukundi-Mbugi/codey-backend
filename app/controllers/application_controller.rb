@@ -18,24 +18,23 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/authors' do
-    Author.create({:name => 'John Doe', :email => 'john@example'});
+    
     authors = Author.all.order(created_at: :desc)
     authors.to_json
   end
 
   post '/posts' do
-    post = Post.create(:title params[:title], :body params[:body])
+    post = Post.create(title: params[:title], body: params[:body])
     post.to_json
     end
   
   post '/authors' do
-    author = Author.create(:name params[:name], :email params[:email])
-    author.to_json
+    author = Author.create(name: params[:name], email: params[:email])
   end
 
   patch '/posts/:id' do
     post = Post.find(params[:id])
-    post.update(:title params[:title], :body params[:body])
+    post.update(title: params[:title], body: params[:body])
     post.to_json
   end
 
