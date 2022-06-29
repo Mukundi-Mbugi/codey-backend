@@ -6,6 +6,7 @@ class ApplicationController < Sinatra::Base
       blogs = posts.map do |post|
       {title: post.title,
       body: post.body,
+      post: post.likes
       id: post.id,
       author: post.author,
       created_at: post.created_at,
@@ -13,6 +14,11 @@ class ApplicationController < Sinatra::Base
     }
     end
     blogs.to_json
+  end
+
+  post '/likes' do
+    like = post.create(likes: params[:likes])
+    like.to_json
   end
 
   get '/authors' do
