@@ -6,7 +6,7 @@ class ApplicationController < Sinatra::Base
       blogs = posts.map do |post|
       {title: post.title,
       body: post.body,
-      post: post.likes,
+      likes: post.likes,
       id: post.id,
       author: post.author,
       created_at: post.created_at,
