@@ -17,6 +17,11 @@ class ApplicationController < Sinatra::Base
     blogs.to_json
   end
 
+  get '/authors' do
+    authors = Author.all.order(created_at: :desc)
+    authors.to_json
+  end
+
   post '/posts' do
     post = Post.create(:title params[:title], :body params[:body])
     post.to_json
@@ -24,6 +29,7 @@ class ApplicationController < Sinatra::Base
   
   post '/authors' do
     author = Author.create(:name params[:name], :email params[:email])
+    author.to_json
   end
 
   patch '/posts/:id' do
