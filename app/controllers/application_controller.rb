@@ -18,8 +18,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/authors' do
-    
-    authors = Author.all.order(created_at: :desc)
+    authors = Author.all
     authors.to_json
   end
 
