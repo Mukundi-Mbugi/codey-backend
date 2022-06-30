@@ -28,9 +28,9 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/posts' do
-    post = Post.create(title: params[:title], body: params[:body], likes: 0)
+    post = Post.create(title: params[:title], body: params[:body], likes: 0, Author.create(name: params[:name], email: params[:email]))
     post.to_json
-    end
+  end
   
   post '/authors' do
     author = Author.create(name: params[:name], email: params[:email])
